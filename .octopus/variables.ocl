@@ -1,0 +1,47 @@
+variable "Project.AWS.Account" {
+    type = "AmazonWebServicesAccount"
+
+    value "aws-account-tf" {
+        environment = ["production"]
+    }
+
+    value "aws-account-tf" {
+        environment = ["test"]
+    }
+}
+
+variable "Project.AWS.API.Gateway.Name" {
+    value "solutions-samples-octosubscriber-#{Octopus.Environment.Name | ToLower}-gateway" {}
+}
+
+variable "Project.AWS.Backend.Bucket" {
+    value "samples-#{Octopus.Space.Name | Replace \" \" | ToLower}-terraform-state" {}
+}
+
+variable "Project.AWS.Backend.Key" {
+    value "samples-#{Octopus.Environment.Name}/Target-Serverless/OctoSubscriber" {}
+}
+
+variable "Project.AWS.Backend.Region" {
+    value "us-west-2" {}
+}
+
+variable "Project.AWS.Lambda.AcceptMessage.FunctionName" {
+    value "solutions-samples-octosubscriber-#{Octopus.Environment.Name | ToLower}-accept-message" {}
+}
+
+variable "Project.AWS.Lambda.ProcessMessage.FunctionName" {
+    value "solutions-samples-octosubscriber-#{Octopus.Environment.Name | ToLower}-process-message" {}
+}
+
+variable "Project.AWS.Queue.Name" {
+    value "solutions-samples-octosubscriber-#{Octopus.Environment.Name | ToLower}-queue" {}
+}
+
+variable "Project.AWS.Queue.Url" {
+    value "https://sqs.#{AWS.US.Primary.Region}.amazonaws.com/#{Project.AWS.AccountId}/#{Project.AWS.Queue.Name}" {}
+}
+
+variable "Project.AWS.Region" {
+    value "#{AWS.US.Primary.Region}" {}
+}
