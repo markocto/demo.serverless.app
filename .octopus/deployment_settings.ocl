@@ -1,5 +1,0 @@
-connectivity_policy {}
-
-versioning_strategy {
-    template = "#{Octopus.Date.Year}.#{Octopus.Date.Month}.#{Octopus.Date.Day}.i"
-}
