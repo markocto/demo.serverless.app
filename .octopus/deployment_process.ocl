@@ -23,7 +23,7 @@ step "aws-deploy-accept-message-lambda-function" {
             Octopus.Action.Template.Version = "8"
             OctopusUseBundledTooling = "False"
         }
-        worker_pool = "default-worker-pool"
+        worker_pool_variable = "Project.Worker.Pool.Name"
 
         container {
             feed = "docker-container-registry"
@@ -69,7 +69,7 @@ step "aws-deploy-process-message-lambda-function" {
             Octopus.Action.Template.Version = "8"
             OctopusUseBundledTooling = "False"
         }
-        worker_pool = "default-worker-pool"
+        worker_pool_variable = "Project.Worker.Pool.Name"
 
         container {
             feed = "docker-container-registry"
@@ -109,7 +109,7 @@ step "aws-configure-accept-message-lambda-alias" {
             Octopus.Action.Template.Version = "2"
             OctopusUseBundledTooling = "False"
         }
-        worker_pool = "default-worker-pool"
+        worker_pool_variable = "Project.Worker.Pool.Name"
 
         container {
             feed = "docker-container-registry"
@@ -138,7 +138,7 @@ step "aws-configure-process-message-lambda-alias" {
             Octopus.Action.Template.Version = "2"
             OctopusUseBundledTooling = "False"
         }
-        worker_pool = "default-worker-pool"
+        worker_pool_variable = "Project.Worker.Pool.Name"
 
         container {
             feed = "docker-container-registry"
@@ -169,7 +169,7 @@ step "aws-configure-lambda-api-gateway-integration" {
             Octopus.Action.Template.Version = "2"
             OctopusUseBundledTooling = "False"
         }
-        worker_pool = "default-worker-pool"
+        worker_pool_variable = "Project.Worker.Pool.Name"
 
         container {
             feed = "docker-container-registry"
