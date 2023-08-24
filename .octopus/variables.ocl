@@ -55,5 +55,5 @@ variable "Project.Worker.Pool.Name" {
 }
 
 variable "Project.AWS.Backend.Bucket" {
-    value "markl-#{Octopus.Space.Name | Replace \" \" | ToLower}-terraform-state" {}
+    value "markl-#{Project.AWS.Backend.Bucket | Replace \" \" | ToLower}-terraform-state" {}
 }
