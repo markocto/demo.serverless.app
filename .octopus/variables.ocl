@@ -18,10 +18,6 @@ variable "Project.AWS.Backend.Key" {
     value "markl-#{Octopus.Environment.Name}/Target-Serverless/OctoSubscriber" {}
 }
 
-variable "Project.AWS.Backend.Region" {
-    value "ap-southeast-2" {}
-}
-
 variable "Project.AWS.Lambda.AcceptMessage.FunctionName" {
     value "markl-octosubscriber-#{Octopus.Environment.Name | ToLower}-accept-message" {}
 }
@@ -57,4 +53,15 @@ variable "Project.Worker.Pool.Name" {
 
 variable "Project.AWS.Backend.Bucket" {
     value "markl-#{AWS.Backend.Bucket | Replace \" \" | ToLower}-terraform-state" {}
+}
+
+variable "Project.AWS.Backend.Region" {
+    value "ap-southeast-2" {
+        environment = ["development"]
+    }
+
+    value "us-east-2" {
+        description = ""
+        environment = ["production"]
+    }
 }
