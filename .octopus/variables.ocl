@@ -45,3 +45,15 @@ variable "Project.AWS.Queue.Url" {
 variable "Project.AWS.Region" {
     value "#{AWS.APAC.Primary.Region}" {}
 }
+
+variable "Project.Worker.Pool.Name" {
+    type = "WorkerPool"
+
+    value "ap-southeast-2-non-prod-serverless" {
+        environment = ["development"]
+    }
+
+    value "us-east-1-prod-serverless" {
+        environment = ["production"]
+    }
+}
