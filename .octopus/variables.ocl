@@ -48,10 +48,6 @@ variable "Project.Worker.Pool.Name" {
     value "ap-southeast-2-non-prod-serverless" {
         environment = ["development"]
     }
-
-    value "us-east-1-prod-serverless" {
-        environment = ["production"]
-    }
 }
 
 variable "Project.AWS.Backend.Bucket" {
