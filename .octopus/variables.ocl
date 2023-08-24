@@ -34,10 +34,6 @@ variable "Project.AWS.Queue.Url" {
     value "https://sqs.#{AWS.APAC.Primary.Region}.amazonaws.com/#{Project.AWS.AccountId}/#{Project.AWS.Queue.Name}" {}
 }
 
-variable "Project.AWS.Region" {
-    value "#{AWS.APAC.Primary.Region}" {}
-}
-
 variable "Project.Worker.Pool.Name" {
     type = "WorkerPool"
 
@@ -56,6 +52,17 @@ variable "Project.AWS.Backend.Bucket" {
 }
 
 variable "Project.AWS.Backend.Region" {
+    value "ap-southeast-2" {
+        environment = ["development"]
+    }
+
+    value "us-east-2" {
+        description = ""
+        environment = ["production"]
+    }
+}
+
+variable "Project.AWS.Region" {
     value "ap-southeast-2" {
         environment = ["development"]
     }
