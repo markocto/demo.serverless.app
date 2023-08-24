@@ -14,10 +14,6 @@ variable "Project.AWS.API.Gateway.Name" {
     value "markl-octosubscriber-#{Octopus.Environment.Name | ToLower}-gateway" {}
 }
 
-variable "Project.AWS.Backend.Bucket" {
-    value "markl-#{Octopus.Space.Name | Replace \" \" | ToLower}-terraform-state" {}
-}
-
 variable "Project.AWS.Backend.Key" {
     value "markl-#{Octopus.Environment.Name}/Target-Serverless/OctoSubscriber" {}
 }
@@ -56,4 +52,8 @@ variable "Project.Worker.Pool.Name" {
     value "us-east-1-prod-serverless" {
         environment = ["production"]
     }
+}
+
+variable "Project.AWS.Backend.Bucket" {
+    value "markl-#{AWS.Backend.Bucket | Replace \" \" | ToLower}-terraform-state" {}
 }
