@@ -51,6 +51,7 @@ variable "Project.Worker.Pool.Name" {
 
     value "us-east-2-prod-serverless" {
         description = ""
+        environment = ["production"]
     }
 }
 
